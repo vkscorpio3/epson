@@ -1,0 +1,20 @@
+# ImpEx for Store / Point of Service
+# English localisations
+# Macros / Replacement Parameter definitions
+$productCatalog=epsonProductCatalog
+$lang=en
+$standardHours=ail-standard-hours
+$weekendHours=ail-weekend-hours
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)
+
+UPDATE StoreLocatorFeature;code[unique=true];name[lang=$lang]
+;buyOnlinePickupInStore;"Store pickup and Store fulfillment available"
+
+UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];name[lang=$lang];message[lang=$lang]
+;$standardHours; 30.04.2015 ;"Day before May day";"We are open"
+;$standardHours; 01.05.2015 ;"May day";"We are open"
+
+UPDATE PointOfService;name[unique=true];displayName;
+;110481;AR - ALBL CONNAUGHT PLACE DELHI;
+;102324;AR - SOUTH EXTENSION DELHI;

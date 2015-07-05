@@ -1,0 +1,11 @@
+#
+# Import the BaseStore
+#
+
+# Language
+$lang=en
+$storeUid=epson
+
+# Create Base Store
+UPDATE BaseStore;uid[unique=true];name[lang=$lang]
+;$storeUid;"Epson Store"
